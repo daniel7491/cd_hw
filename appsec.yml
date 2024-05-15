@@ -1,9 +1,10 @@
 version: 0.0
-Resources:
-  - MyNginxContainer:
-      Type: AWS::CodeDeploy::Instance
-      Properties:
-        Image: nginx:latest
-        EnvironmentVariables:
-          - Name: EXAMPLE_ENV
-            Value: "example-value"
+os: linux
+files:
+  - source: /index.html
+    destination: /var/www/html/
+hooks:
+  BeforeInstall:
+    - location: scripts/deploy.sh
+      timeout: 300
+      runas: root
