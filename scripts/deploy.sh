@@ -1,4 +1,8 @@
 #!/bin/bash
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -a -G docker $(whoami)
 
 docker pull nginx:latest
 
