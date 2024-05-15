@@ -5,6 +5,6 @@ files:
     destination: /home/ec2-user/my-app
 hooks:
   BeforeInstall:
-    - location: install_dependencies
+    - location: /install_dependencies
       timeout: 300
       runas: root
