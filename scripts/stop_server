@@ -1,5 +1,5 @@
 #!/bin/bash
-isExistApp=$(pgrep -f nginx)
+isExistApp=$(docker ps -q -f name=my-nginx-container)
 if [[ -n $isExistApp ]]; then
-    docker stop nginx
+    docker stop my-nginx-container
 fi

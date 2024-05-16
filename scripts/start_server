@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo docker run -d nginx
+sudo /usr/bin/docker run -d --name my-nginx-container nginx
