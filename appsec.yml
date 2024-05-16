@@ -1,13 +1,14 @@
 version: 0.0
 os: linux
-files:
-  - source: /
-    destination: /home/ec2-user/my-app
 hooks:
   BeforeInstall:
-    - location: deploy.sh
+    - location: scripts/install_dependencies
       timeout: 300
       runas: root
-permissions:
-  - object: /home/ec2-user/my-app/deploy.sh
-    pattern: "755"
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: root
